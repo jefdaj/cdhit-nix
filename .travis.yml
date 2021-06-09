@@ -28,7 +28,6 @@ git:
 
 script:
   - nix-build release.nix
-  - ./result/bin/cd-hit -h
 
 notifications:
   email:
