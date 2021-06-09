@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, zlib, openmpi }:
+{ stdenv, fetchurl, zlib, openmpi, gcc }:
 
 stdenv.mkDerivation rec {
   name = "cdhit-${version}";
@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
   #  sha256 = "0jarns7wpwyn2gipb11nf1hd1q87nx6lvzh5310194w4mbj8bmip";
   #};
   src = ./.;
-  buildInputs = [ zlib openmpi ];
+  buildInputs = [ gcc zlib openmpi ];
   installPhase = ''
     mkdir -p $out/bin
     make PREFIX=$out/bin install openmp=yes
